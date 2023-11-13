@@ -1,0 +1,39 @@
+####### PRE-RENDERING IN NEXTJS
+
+Pre-rendering means generation of HTML for each pages in advance instead of having it all done by client side javascript. In react by-default there is no pre-rendering which we can be determined by going to page source of react application which will always remain empty but in case of nextJS pre-rendering take place with the help of which page source will remain populated. 
+
+####### APPLICATION INITIAL LOAD COMPARISON
+
+In react initially html is empty with div element with id root and then when js is loaded in browser it will then mount the node element in html and populate the div element with id root , This process is called hydration. On the other hand in nextJS app the html is already rendered and populated with necessary data and dom element , The js is then loaded to make app interactive.
+
+####### WHY PRE-RENDER 
+
+1. Pre-rendering improves performance , In react we need to wait for js to be loaded in browser then the app is available to the user on the other hand with pre-rendering html is already there hence app loads faster. 
+
+2. Pre-rendering result in better SEO , As in react page source code is empty so google crawlers will not find anything to help in indexing the react app but in case of nextJS with pre-rendering as html content is already there so it help web crawlers to index the app hence leading to better search ranking. 
+
+####### TYPES OF PRE-RENDERING
+
+1. Static Generation => It is a method where the HTML pages are generated at build time that is HTML with all the data required to make up the content of web pages are generated in advance when we build the application. It is the recommended method to pre-render pages whenever possible. Page can be built once , cached by a CDN and served to the client almost instantly hence leading to performance boost. This approach is suitable for pages that do not change frequently ex, Blog pages , marketing pages etc. When a user requests a page, the pre-rendered HTML is served, and subsequent requests for the same page will receive the same HTML until the next build. 
+
+By default, Next.js uses Static Generation (SG) for pre-rendering. When you create a page in the pages directory, Next.js will statically generate the HTML at build time. This means that the HTML for each page is generated once during the build process, and the same pre-rendered HTML is served to all users until the next build.
+
+Static Generation can be done with or without data which means with or without making request to external api , As there can be a case in which for some pages we already know the content but for some pages first need to get some data from database and then populate the page content.
+
+SOME OF THE FEATURES OF STATIC GENERATION ::
+
+(a). getStaticProps() runs only on server side that is why when we console log anything inside this function we see it on terminal rather than in console. It means it will never run in client side infact the code we run inside this function won't even be included in the js bundle that is sent to the browser 
+
+(b). We can write server side code inside this function that is node js code like accessing file system using fs moudle and querying a database 
+
+(c). The getStaticProps() is allowed only in a page and cannot be run in a regular component file. It is used only for pre-rendering and not for client side data fetching. Ex of use displaying list of blogs in blog website etc..
+
+(d). The getStaticProps() should return an object and object must contain a props key which is also an object otherwise nextJS shows error 
+
+(e). getStaticProps() runs at build time in production that is when we run command "npm run build" and this is why when we go to page source we see the fetched data is also available in HTML as content. In dev it runs on every request 
+
+
+When we run "npm run build" command the terminal of nextJS gives us information about the project like the routes our application have , size of each route , size of file to be downloaded by user when visiting each route etc.. And to understand more watch code-evolution video "20 - Inspecting Static Generation Builds". 
+
+
+2. Server Side Rendering =>

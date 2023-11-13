@@ -1,0 +1,5 @@
+The most important folder in nextjs project structure is the pages folder , This folder alone is responsible for entire routing feature of our application. The index.js file of this pages folder is our entry point file. _app.js is the file in which we define layout for our application and api folder is where we create our backend api. 
+
+###### FLOW OF CONTROL
+
+When we run " npm run dev " command the execution is transfered to _app.js file of pages folder which contains App component with Component and pageProps props passed to it. This App component then return the Component prop as a jsx and this Component props correspond to the component returned by index.js which is the Home component. So from package.json -> _app.js -> index.js -> browser
