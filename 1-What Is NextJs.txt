@@ -1,3 +1,37 @@
+##### Nextjs is a react framework for production
+
+As using only react it is not quite possible to build a full feature rich application ready to be deployed. React is a library for building user interfaces and we have to make decisions on other features of the app like routing , styling , authentication etc.
+
+Nextjs on the otherhand uses react for building user interfaces , It is loaded with a lot more features that enable you to build full fledgeg production ready applications. Feature like routing , styling , authentication , bundle optimization etc and no need to install additional packages nextjs provides everything out of the box.
+
+##### Next js provide some features out of the box for which we generally install packages in react::
+
+1. File based routing ( instead of react-router-dom in react nextjs have this inbuilt feature for routing )
+
+2. Pre-rendering ( It means nextjs generate html for each page in advance instead of having it done all by client side js in react which result in better SEO and performance )
+
+3. API routes ( We can also create backend api in nextjs )
+
+4. Support for CSS modules
+
+5. Authentication ( nextjs support multiple authentication pattern each designed for different use-cases )
+
+6. Dev and Prod build system
+
+To create nextjs app command is " npx create-next-app "
+
+###### In package.json of nextjs we have 2 command different from one in react ::
+
+1. dev    =>  To run application in development mode with hot core reloading
+
+2. Start  => Nextjs can be used to create full stack app as well so in order to run that server in dev mode we use this start script , unlike in react the start script is used to run the frontend in dev mode but make sure build script need to be runned before start script
+
+##### Folder structure of nextjs is different from react
+
+In nextjs we have public folder which contain public assests like image , icons , fonts etc.. just like one present in react but does not contain index.html file because in nextjs all the html files is created dynamically by pre-rendering concept
+
+In nextjs we have most imp folder called pages and this folder alone is responsible for whole routing feature provided by nextjs. unlike in react where entry point file index.js is present in root of src folder in nextjs the index.js file is present in pages folder. _app.js is the file by which we can define layout for our application and api folder is where we create our backend api
+
 The most important folder in nextjs project structure is the pages folder , This folder alone is responsible for entire routing feature of our application. The index.js file of this pages folder is our entry point file. _app.js is the file in which we define layout for our application and api folder is where we create our backend api. 
 
 ###### FLOW OF CONTROL

@@ -32,8 +32,9 @@ SOME OF THE FEATURES OF STATIC GENERATION ::
 
 (e). getStaticProps() runs at build time in production that is when we run command "npm run build" and this is why when we go to page source we see the fetched data is also available in HTML as content. In dev it runs on every request 
 
-
 When we run "npm run build" command the terminal of nextJS gives us information about the project like the routes our application have , size of each route , size of file to be downloaded by user when visiting each route etc.. And to understand more watch code-evolution video "20 - Inspecting Static Generation Builds". 
+
+@@@@@@ NOTE::  let say we have build the application by npm run build and run the npm run start command to run our build application in localhost. Let say our application consist of only 2 route , "/" and "/product". Now when we go to "/" route in network tag html file for "/" route , css , webpack , framework code and index.js file is downloaded and when we go to "/product" route then again html file for "/product" , css , webpack , framework code and product.js file is downloaded , It means only those file will be downloaded which user currently want in browser. Now let say in "/" route i have a link that allow me to navigate from "/" to "/product" route and now because of this link when i go to "/" route the network tab will again download all file required by "/" but will also download product.js file of "/product" route as its link is present in "/" route. The advantage of this behaviour is by this now when we go to "/product" route the ui will load fast because .js file is already downloaded. To understand more watch viedo "21 - Running Static Generation Builds"
 
 
 2. Server Side Rendering =>
