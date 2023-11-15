@@ -25,9 +25,12 @@ export async function getStaticProps() {
   const data = await response.json();
   return {
     props: {
-      postList: data.slice(0, 3), // returning only 3 posts
+      // postList: data.slice(0, 3), // returning only 3 posts
+      postList: data
     },
   };
 }
 
 // Here above even though we can implement master detail pattern by making api call in useEffect hook but by this pre-rendering of JSON data coming from backend api will not take place.
+
+// Here the above we are only fetching 3 post just for understanding but for real world application we will have around 100 post coming from backend 
