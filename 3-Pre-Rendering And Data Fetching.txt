@@ -40,4 +40,10 @@ Now most of the time in app we create "MASTER DETAIL PATTERN" in which we have a
 
 Here when we run npm run build for application which contain pre-rendering of dynamic route JSON data as well in this case build will also contain seprate html file each based on value of that dynamic parameter. To understand more watch video "24 - Inspecting getStaticPaths Builds"
 
-2. Server Side Rendering =>
+#### ISSUES WITH STATIC SITE GENERATION ::
+
+The problem with SSG approach of pre-rendering is the build time is proportional to no of pages in the application so if let say app have 1 lack pages so it can take around 2 hours for the build to complete so in directly greater the build time more will be the cost implication of app. A page once generated will contain the stale or same data as long as we re-build the app. Let say we have ecommerce app in which products detail is changing frequently in backend , So in this case if we are using SSG in order to reflect the changed data in frontend we have to re-build app again and again which in turn takes a lot of time. We might think that we can use getStaticPaths to pre-render pages some pages at begining and rest can be generated at request on demand , But getStaticPaths works only for dynamic route pages and even if our app mostly consist of dynamic route still problem of stale data will come in which if we have pre-rendered some pages at build time and rest is generated at request on demand then if we changed the backend data it will not update or again pre-render the pages which are already generated. 
+
+2. Incremental Static Generation => 
+
+3. Server Side Rendering =>
