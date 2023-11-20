@@ -1,2 +1,9 @@
 ######### CLIENT SIDE DATA FETCHING IN NEXTJS
 
+Whem building application we might not always need to pre-render the data for ex a dashboard page in which a user can see details like how many post he have , likes , followers etc , Such information is private to the user and highly specific to him so we does not require SEO on those pages , no need to pre-render page , we can rely on client side data fetching. 
+
+When doing client side data fetching in a page that data will not be pre-rendered by nextJS instead nextJS will pre-render the page based on intial state. 
+
+########## CLIENT SIDE DATA FETCHING + PRE-RENDERING
+
+Let say we are building shopping list app , since we want SEO as well so we will pre-render the product list at request time and user events like filtering and pagination etc will be done by client side data fetching because ideally data which depends on user interaction is always fetched in client side. 

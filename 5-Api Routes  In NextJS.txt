@@ -1,0 +1,13 @@
+############ API ROUTES 
+
+NextJS is a full stack framework that allow us to create both frontend using Reactjs and backend using Nodejs. In Next.js, API routes allow you to build your API endpoints as part of your Next.js application. These API routes are created in the pages/api directory. The files inside this directory are automatically mapped to /api/* routes or files inside this directory are the nodeJS file for backend api. The mapping of url for api route is similar to page route that is dynamic route , nested folder route etc everything is same.
+
+However, it's important to note that the backend logic in Next.js is often used for handling API requests where we mask external apis in which client make req to api present in /api folder which in turn makes request to external api and then send response to client, server-side rendering, and other auxiliary tasks and for basic API operation. For more complex backend functionality one should go for a dedicated backend server and framework. 
+
+The best thing is the code we write in /api folder for api routes will never get bundled with frontend code , So it will not effect the performance of frontend app. 
+
+Now let say in our app we have some buttons on which when we click we will get , add and delete data from backend using our api. Now another point to note let say we want to pre-render individual comment in page as well , So for this we will implement getStaticPaths() as individual comment have dynamic id and getStaticProps() to fetch individual comment based on that dynamic id , But here is a catch inside getStaticProps() we will not use our own API endpoint to fetch individual comment because it is not recommended by nextJS to call your own api from getStaticProps() and getServerSideProps() for pre-rendering , we can offcourse fetch data from external api but not from your own one and the reason for that is inside apis and getStaticProps() we write server nodeJS code so if we have to fetch data from your own api then why calling it instead we can extract logic written in api and put it in getStaticProps() because it can also run server side code which in turn saves build time and latency in those api call.   
+
+
+
+
