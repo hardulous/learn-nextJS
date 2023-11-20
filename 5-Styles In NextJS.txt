@@ -1,0 +1,11 @@
+########### STYLES IN NEXTJS
+
+In nextJS we have 4 way by which we can add styles in our app ::
+
+1. GLOBAL STYLE => In order to add global style which will we applied across whole application just import that global css file in _app.js of /pages directory , As _app.js export a component which is the wrapper component for every page in nextJS so adding a style in it will add it to every page. Now apart from adding your own css file we will come across a need to import global style from another library like let say bootstrap in which again import it in _app.js 
+
+2. COMPONENT LEVEL STYLE => For component level styling nextJS support css module using a file name ".module.css" , Now the css writing style is similar to the one in ".css" file but the way we use is different , We have to import style object from .module.css file and that style object contain all classes and ids as property which we can use then without need to wory about name collision with any other css files. If 2 .module.css file contain same class name so in this case we can use them in different file without any problem of name collision because .module.css files rule name are generated at random which is different then actual rule name written inside them. 
+
+3. SASS OR SCSS => Saas is the extension of css that provide powerfull feature like variables , function and other features that allow us to build more complex feature in our app. Now in order to use saas in nextJS just install the package with command "npm i sass" and start using it in app. The good thing about saas is it also support css module
+
+4. CSS IN JS SOLUTION =>  Css in js is a way of writing css in which we write js that will be converted to css eventually and that css is also component level specific that is the css will not effect the css of other files because it is generated with unique name. For this we can use mui or styled-component and inline css as well which is not recommended as everytime component re-render that inline-style object will be created a new.  
