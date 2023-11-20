@@ -1,2 +1,15 @@
 ########## MISCELLENOUS TOPIC IN NEXTJS
 
+1. APP LAYOUT
+
+When building app it is common to have a defined layout for each page in app for ex , Header at the top and footer at the bottom which will remain same for all page and only middle part of app will change. In nextjs the recommended way to define layout for app is by _app.js. 
+
+The _app.js return a component that receive props :: 
+
+(a). Component => This is a prop passed to _app.js by Next.js. It represents the current page component that needs to be rendered.
+
+(b). pageProps => Also a prop passed to _app.js by Next.js. It contains the initial props that will be passed to the page component. These props can include data fetched on the server side (using getInitialProps or getServerSideProps) or other initial props needed for the page.
+
+When you use <Component {...pageProps} />, you are essentially rendering the current page component (Component) and passing in its initial props (pageProps). This way, you ensure that the page component receives the necessary data and properties when it's rendered. if you omit <Component {...pageProps} /> from the _app.js file, your pages won't be rendered, and the application won't work as expected. 
+
+Now to change layout of whole app just add the necessary JSX code that you want to be consistent in your app in _app.js and in this way that JSX will remain same for all pages. We might have some exceptions in which layout should be different compare to whole app like signup and signin page in which we dont want to have same layout in this case to define a different layout for specifc page we can use "getLayout" function of page component and this function would be responsible for returning the layout component for that specific page.
