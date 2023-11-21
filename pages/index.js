@@ -2,6 +2,8 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import React from "react";
 
+import Layout from "@/layout/index"; // Here @/layout is aliases for path "components/layout"
+
 const Home = () => {
   let router = useRouter();
 
