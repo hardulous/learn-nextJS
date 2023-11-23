@@ -17,7 +17,7 @@ const theme = {
 
 export default function App({
   Component,
-  pageProps: { session, ...pageProps },  // Here if any SSR have passed session object as props it will be available to pageProps as props which then can be passed to SessionProvider component for better performance
+  pageProps: { session, ...pageProps }, // Here if any SSR have passed session object as props it will be available to pageProps as props which then can be passed to SessionProvider component for better performance
 }) {
   // Now use the getLayout function if it's defined on the page so that instead of default layout defined at the bottom we will use the layout specific for that page.
   if (Component.getLayout) {
@@ -42,13 +42,14 @@ export default function App({
      */}
 
       {/* NextJS auth */}
-
-      <SessionProvider session={session}> 
-        <Navbar />
-        <Component {...pageProps} />
-      </SessionProvider>
+      <ThemeProvider theme={theme}>
+        <SessionProvider session={session}>
+          <Navbar />
+          <Component {...pageProps} />
+        </SessionProvider>
+      </ThemeProvider>
     </>
   );
 }
 
-// Here this SessionProvider component allow instances of useSession to be shared across whole component tree without getting any bug in session object , Infact it is highly recommended to use this component at top level because it improves performance , reduce network calls to fetch session data of user and avoid page flickers when rendering. 
+// Here this SessionProvider component allow instances of useSession to be shared across whole component tree without getting any bug in session object , Infact it is highly recommended to use this component at top level because it improves performance , reduce network calls to fetch session data of user and avoid page flickers when rendering.
