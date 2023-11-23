@@ -32,3 +32,4 @@ It refers to a way of importing modules or files using an absolute path that sta
 5. STATIC HTML EXPORT 
 
 Till now we have build command in nextJS to build the application for production in .next folder and start command to start the node.js server that supports hybrid pages , serving both statically generated and server side rendered pages. But there exists another command called "next export" that will exports all your pages to static HTML files that we can serve without the need of node.js server this allow us to host our app on any static hosting server or CDN without need to maintain a server. But it comes with limitation that we can not export pages that use ISR and SSR for pre-rendering but simple SSG pages can be exported. But to run export command first run build command 
+

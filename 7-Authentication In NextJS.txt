@@ -1,0 +1,11 @@
+############ AUTHENTICATION IN NEXTJS
+
+In react when we are authenticating we are dealing with only client side authentication but in nextJS we have to deal with client , server and api route authentication. Other thing when app is not persisting data of users then we have to depend on auth services like github , facebook to ensure user is authenticated and if app is persisting data of users then we have to rely on database. Now in nextJS instead of building auth system from scratch we will use a library called "nextAuth.js" that provides all type of auth for nextJS app. 
+
+In order to use nextAuth.js we need to create a route called "/api/auth/[...nextauth].js" which is a catchAllRoute and there we will implement the authentication provided by nextAuth.js. Make sure the name of the file must be [...nextauth].js
+
+In order to do client side authentication we will use "useSession" hook provided by nextAuth.js , It is a hook that gives you access to the logged in user's session data. Before nextAuth v4 useSession() hook return array which we can destructure but now after v4 it returns object
+
+In order to do server side authentication again we use session object by getSession() of nextAuth in getServerSideProps() but now instead of deciding what ui to render on screen we determine what props to send to pages. Here when it comes to getStaticProps(), using getSession() directly is not recommended because getStaticProps runs at build time, and the user session is not available during that phase.
+
+Here sometime object return by getSession() and useSession() will contain info which is not sufficient so to add custom property in session object we use "callback" 
