@@ -16,7 +16,7 @@ In react initially html is empty with div element with id root and then when js 
 
 1. Static Generation => It is a method where the HTML pages are generated at build time that is HTML with all the data required to make up the content of web pages are generated in advance when we build the application. It is the recommended method to pre-render pages whenever possible. Page can be built once , cached by a CDN and served to the client almost instantly hence leading to performance boost. This approach is suitable for pages that do not change frequently ex, Blog pages , marketing pages etc. When a user requests a page, the pre-rendered HTML is served, and subsequent requests for the same page will receive the same HTML until the next build. 
 
-By default, Next.js uses Static Generation (SG) for pre-rendering. When you create a page in the pages directory, Next.js will statically generate the HTML at build time. This means that the HTML for each page is generated once during the build process, and the same pre-rendered HTML is served to all users until the next build.
+By default, Next.js uses Static Generation (SG) for pre-rendering. When you create a page component in the pages directory, Next.js will statically generate the HTML at build time. This means that the HTML for each page is generated once during the build process, and the same pre-rendered HTML is served to all users until the next build.
 
 Static Generation can be done with or without data which means with or without making request to external api , As there can be a case in which for some pages we already know the content but for some pages first need to get some data from database and then populate the page content.
 
